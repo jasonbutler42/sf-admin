@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+$sf-font-family: 'Lato', sans-serif;
+
+// blue
+$sf-dark-blue: #0b193b;
+// greens
+$sf-dark-green: #318c8a;
+$sf-med-green: #3a9c9b;
+$sf-light-green: #62c6c2;
+// greys - probably too many
+$sf-darker-grey: #8e9093;
+$sf-dark-grey: #c2bfbf;
+$sf-light-grey: #d1d2d4;
+$sf-lighter-grey: #eaebec;
+
+$sf-border-color: $sf-dark-grey;
+
+.sf-dark-blue {background: $sf-dark-blue; width: 20%; height: 2em;}
+.sf-dark-green {background: $sf-dark-green; width: 20%; height: 2em;}
+.sf-med-green {background: $sf-med-green; width: 20%; height: 2em;}
+.sf-light-green {background: $sf-light-green; width: 20%; height: 2em;}
+.sf-darker-grey {background: $sf-darker-grey; width: 20%; height: 2em;}
+.sf-dark-grey {background: $sf-dark-grey; width: 20%; height: 2em;}
+.sf-light-grey {background: $sf-light-grey; width: 20%; height: 2em;}
+.sf-lighter-grey {background: $sf-lighter-grey; width: 20%; height: 2em;}

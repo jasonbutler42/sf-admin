@@ -1,0 +1,347 @@
+extends ../layout
+
+block content
+    .options
+        p
+            a.btn.btn-info(href="/reports") All reports
+        p
+            a.btn.btn-info(href='/reports/#{report._id}/edit') Edit this report
+    .report
+        header.report-header
+            .branding
+                .name #{report.name}
+                .website
+                    a(href="http://#{report.website}",target="_blank") #{report.website}
+            nav#navbar           
+                ul.nav.navbar-nav
+                    li
+                        a(href="#overview") Overview
+                    li
+                        a(href="#team") Team
+                    li
+                        a(href="#industry") Industry
+                    li
+                        a(href="#competition") Competition
+                    li
+                        a(href="#differentitation") Differentiation
+                    li
+                        a(href="#financials") Financials
+                    li
+                        a(href="#faq") FAQ
+                    li
+                        a(href="#summary") Summary
+        .report-body-wrapper(data-spy="scroll" data-target="#navbar")
+            .report-body-content
+                section.overview#overview
+                    .top
+                        .overallRating 
+                            input.rating.form-control#inputOverallRating(type="text", name="overallRating",placeholder="1-5", value="#{report.overallRating}",data-show-caption="false",data-show-clear="false",data-hover-enabled="true",data-empty-star='<i class="glyphicon glyphicon-record"></i>',data-filled-star='<i class="glyphicon glyphicon-record" style="background: #fff;"></i>',data-step="0.1",data-default-caption="{rating}", data-star-captions="",data-star-caption-classes="",data-size="sm",data-disabled="true")
+                            label Stratifund Rating: #{report.overallRating}/5
+                        .right-column
+                            .industry 
+                                label Industry:
+                                .value #{report.industry}
+                            .minimumInvestment 
+                                label Minimum Investment:
+                                .value #{report.minimumInvestment}
+                            .offeringType 
+                                label Type of Offering:
+                                .value #{report.offeringType}
+                    ul.bottom
+                        li.twelveMonthSales
+                            label Last 12 MO. Sales:
+                            .value #{report.twelveMonthSales}
+                        li.valuation
+                            label Valuation:
+                            .value #{report.valuation}
+                        li.location
+                            label Location:
+                            .value #{report.location}
+                        li
+                            label Amount Seeking:
+                            .value #{report.seekingMin} to #{report.seekingMax}:
+                        li.stage 
+                            label Company Stage:
+                            .value #{report.stage}
+                        li.status
+                            label Deal Status:
+                            .value #{report.status}
+                        li.fundingOn
+                            label Funding on:
+                            .value 
+                                a(href="#{report.fundingURL}",target="_blank") #{report.fundingOn}
+                    .profile 
+                        h3 Profile
+                        .text #{report.profile}
+                section.team.category#team
+                    .header
+                        .left
+                            h2 Team
+                            label Category Rating
+                        input.rating.form-control#inputTeamRating(type="text", name="teamRating",placeholder="1-5",value="#{report.teamRating}",data-show-caption="false",data-show-clear="false",data-hover-enabled="true",data-empty-star='<i class="glyphicon glyphicon-record"></i>',data-filled-star='<i class="glyphicon glyphicon-record"></i>',data-step="1",data-default-caption="{rating}", data-star-captions="",data-star-caption-classes="",data-size="sm",data-disabled="true")
+                    .row
+                        .col-xs-12.col-sm-8.col-md-9.yesno-group
+                            .form-group.yesno
+                                label Has the CEO started and operated a business in the past?
+                                .yes
+                                    input#inputTeamCEOYes(type="radio",name="teamCEO",value="true", disabled="disabled",checked=('#{report.teamCEO}'==='true' ? "checked" : undefined))
+                                    label(for="inputTeamCEOYes") 
+                                        span.sr-only Yes
+                                .no
+                                    input#inputTeamCEONo(type="radio",name="teamCEO",value="false", disabled="disabled", checked=('#{report.teamCEO}'==='false' ? "checked" : undefined))
+                                    label(for="inputTeamCEONo") 
+                                        span.sr-only No
+                            .form-group.yesno
+                                label Do any members of the team have direct experience in this industry?
+                                .yes
+                                    input#inputTeamExperienceYes(type="radio", value="true", name="teamExperience", disabled="disabled", checked=('#{report.teamCEO}'==='true' ? "checked" : undefined))
+                                    label(for="inputTeamExperienceYes")
+                                        span.sr-only Yes
+                                .no
+                                    input#inputTeamExperienceNo(type="radio", value="false", name="teamExperience", disabled="disabled", checked=('#{report.teamCEO}'==='false' ? "checked" : undefined))
+                                    label(for="inputTeamExperienceNo")
+                                        span.sr-only No
+                            .form-group.yesno
+                                label Have any members of the management team worked together in the past?
+                                .yes
+                                    input#inputTeamWorkYes(type="radio", value="true", name="teamWork", disabled="disabled", checked=('#{report.teamCEO}'==='true' ? "checked" : undefined))
+                                    label(for="inputTeamWorkYes")
+                                        span.sr-only Yes
+                                .no
+                                    input#inputTeamWorkNo(type="radio", value="false", name="teamWork", disabled="disabled", checked=('#{report.teamCEO}'==='false' ? "checked" : undefined))
+                                    label(for="inputTeamWorkNo")
+                                        span.sr-only No
+                        .col-xs-12.col-sm-4.col-md-3
+                            .form-group
+                                .square-wrapper.col-xs-6.col-sm-12
+                                    .top
+                                        .rotate
+                                            .rotate_inner Relevant Experience
+                                        .squares
+                                            .square.top.left
+                                                .content
+                                                    input#inputTeamGridTopLeft(type="radio", name="teamGrid",value="top-left", disabled="disabled", checked=('#{report.teamGrid}'==='top-left' ? "checked" : undefined))
+                                                    label(for="inputTeamGridTopLeft")
+                                                        span.sr-only Top Left
+                                            .square.top.right
+                                                .content 
+                                                    input#inputTeamGridTopRight(type="radio", name="teamGrid",value="top-right", disabled="disabled", checked=('#{report.teamGrid}'==='top-right' ? "checked" : undefined))
+                                                    label(for="inputTeamGridTopRight")
+                                                        span.sr-only Top Right
+                                            .square.bottom.left
+                                                .content 
+                                                    input#inputTeamGridBottomLeft(type="radio", name="teamGrid",value="bottom-left", disabled="disabled", checked=('#{report.teamGrid}'==='bottom-left' ? "checked" : undefined))
+                                                    label(for="inputTeamGridBottomLeft")
+                                                        span.sr-only Bottom Left  
+                                            .square.bottom.right
+                                                .content 
+                                                    input#inputTeamGridBottomRight(type="radio", name="teamGrid",value="bottom-right", disabled="disabled", checked=('#{report.teamGrid}'==='bottom-right' ? "checked" : undefined))
+                                                    label(for="inputTeamGridBottomRight")
+                                                        span.sr-only Bottom Right
+                                    .bottom
+                                        .filler
+                                        .otherwords Necessary Skills        
+
+                    .teamNotes
+                        label Notes
+                        .text #{report.teamNotes}
+                section.industry.category#industry
+                    .header
+                        .left
+                            h2 Industry
+                            label Category Rating
+                        input.rating.form-control#industryRating(type="text", name="industryRating",placeholder="1-5",value="#{report.industryRating}",data-show-caption="false",data-show-clear="false",data-hover-enabled="true",data-empty-star='<i class="glyphicon glyphicon-record"></i>',data-filled-star='<i class="glyphicon glyphicon-record"></i>',data-step="1",data-default-caption="{rating}", data-star-captions="",data-star-caption-classes="",data-size="sm",data-disabled="true")
+                    .row
+                        .col-xs-12.col-sm-8.col-md-9.yesno-group
+                            .form-group.yesno
+                                label Are there low barriers to entry in this industry?
+                                .yes
+                                    input#inputIndustryBarriersYes(type="radio", value="true", disabled="disabled", name="industryBarriers", checked=('#{report.industryBarriers}'==='true' ? "checked" : undefined))
+                                    label(for="inputIndustryBarriersYes")
+                                        span.sr-only Yes
+                                .no
+                                    input#inputIndustryBarriersNo(type="radio", value="false", disabled="disabled", name="industryBarriers", checked=('#{report.industryBarriers}'==='false' ? "checked" : undefined))
+                                    label(for="inputIndustryBarriersNo")
+                                        span.sr-only No
+                            .form-group.yesno
+                                label Did the industry grow over 5% in the past 12 months?
+                                .yes
+                                    input#inputIndustryGrowthYes(type="radio", value="true", disabled="disabled", name="industryGrowth", checked=('#{report.industryGrowth}'==='true' ? "checked" : undefined))
+                                    label(for="inputIndustryGrowthYes")
+                                        span.sr-only Yes
+                                .no
+                                    input#inputIndustryGrowthNo(type="radio", value="false", disabled="disabled", name="industryGrowth", checked=('#{report.industryGrowth}'==='false' ? "checked" : undefined))
+                                    label(for="inputIndustryGrowthNo")
+                                        span.sr-only No
+                            .form-group.yesno
+                                label Does this industry have international reach?
+                                .yes
+                                    input#inputIndustryReachYes(type="radio", value="true", disabled="disabled", name="industryReach", checked=('#{report.industryReach}'==='true' ? "checked" : undefined))
+                                    label(for="inputIndustryReachYes")
+                                        span.sr-only Yes
+                                .no
+                                    input#inputIndustryReachNo(type="radio", value="false", disabled="disabled", name="industryReach", checked=('#{report.industryReach}'==='false' ? "checked" : undefined))
+                                    label(for="inputIndustryReachNo")
+                                        span.sr-only No
+                        .col-xs-12.col-sm-4.col-md-3
+                            .form-group
+                                .square-wrapper.square-wrapper.col-xs-6.col-sm-12
+                                    .top
+                                        .rotate
+                                            .rotate_inner Market Growth
+                                        .squares
+                                            .square.top.left
+                                                .content
+                                                    input#inputIndustryGridTopLeft(type="radio", disabled="disabled", name="industryGrid",value="top-left", checked=('#{report.industryGrid}'==='top-left' ? "checked" : undefined))
+                                                    label(for="inputIndustryGridTopLeft")
+                                                        span.sr-only Top Left
+                                            .square.top.right
+                                                .content 
+                                                    input#inputIndustryGridTopRight(type="radio", disabled="disabled", name="industryGrid",value="top-right", checked=('#{report.industryGrid}'==='top-right' ? "checked" : undefined))
+                                                    label(for="inputIndustryGridTopRight")
+                                                        span.sr-only Top Right
+                                            .square.bottom.left
+                                                .content 
+                                                    input#inputIndustryGridBottomLeft(type="radio", disabled="disabled", name="industryGrid",value="bottom-left", checked=('#{report.industryGrid}'==='bottom-left' ? "checked" : undefined))
+                                                    label(for="inputIndustryGridBottomLeft")
+                                                        span.sr-only Bottom Left  
+                                            .square.bottom.right
+                                                .content 
+                                                    input#inputIndustryGridBottomRight(type="radio", disabled="disabled", name="industryGrid",value="bottom-right", checked=('#{report.industryGrid}'==='bottom-right' ? "checked" : undefined))
+                                                    label(for="inputIndustryGridBottomRight")
+                                                        span.sr-only Bottom Right
+                                    .bottom
+                                        .filler
+                                        .otherwords Market Size
+                    .industryNotes
+                        label Notes
+                        .text #{report.industryNotes}
+                section.competition.category#competition
+                    .header
+                        .left
+                            h2 Competition
+                            label Category Rating
+                        input.rating.form-control#competitionRating(type="text", name="competitionRating",placeholder="1-5",value="#{report.competitionRating}",data-show-caption="false",data-show-clear="false",data-hover-enabled="true",data-empty-star='<i class="glyphicon glyphicon-record"></i>',data-filled-star='<i class="glyphicon glyphicon-record"></i>',data-step="1",data-default-caption="{rating}", data-star-captions="",data-star-caption-classes="",data-size="sm",data-disabled="true")
+                    .yesno-group
+                        .form-group.yesno
+                            label Is the competition level of this industry low?
+                            .yes
+                                input#inputCompetitionLevelYes(type="radio", value="true", disabled="disabled", name="competitionLevel", checked=('#{report.competitionLevel}'==='true' ? "checked" : undefined))
+                                label(for="inputCompetitionLevelYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputCompetitionLevelNo(type="radio", value="false", disabled="disabled", name="competitionLevel", checked=('#{report.competitionLevel}'==='false' ? "checked" : undefined))
+                                label(for="inputCompetitionLevelNo")
+                                    span.sr-only No
+                        .form-group.yesno
+                            label Is the marketshare of the top three competitors less than 50%?
+                            .yes
+                                input#inputCompetitionMarketshareYes(type="radio", value="true", disabled="disabled", name="competitionMarketshare", checked=('#{report.competitionMarketshare}'==='true' ? "checked" : undefined))
+                                label(for="inputCompetitionMarketshareYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputCompetitionMarketshareNo(type="radio", value="false", disabled="disabled", name="competitionMarketshare", checked=('#{report.competitionMarketshare}'==='false' ? "checked" : undefined))
+                                label(for="inputCompetitionMarketshareNo")
+                                    span.sr-only No
+                        .form-group.yesno
+                            label Is competition categorized as fragmented?
+                            .yes
+                                input#inputCompetitionFragmentationYes(type="radio", value="true", disabled="disabled", name="competitionFragmentation", checked=('#{report.competitionFragmentation}'==='true' ? "checked" : undefined))
+                                label(for="inputCompetitionFragmentationYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputCompetitionFragmentationNo(type="radio", value="false", disabled="disabled", name="competitionFragmentation", checked=('#{report.competitionFragmentation}'==='false' ? "checked" : undefined))
+                                label(for="inputCompetitionFragmentationNo")
+                                    span.sr-only No
+                    .competitionNotes
+                        label Notes
+                        .text #{report.competitionNotes}
+                section.differentitation.category#differentitation
+                    .header
+                        .left
+                            h2 Differentitation
+                            label Category Rating
+                        input.rating.form-control#differentiationRating(type="text", name="differentiationRating",placeholder="1-5",value="#{report.differentiationRating}",data-show-caption="false",data-show-clear="false",data-hover-enabled="true",data-empty-star='<i class="glyphicon glyphicon-record"></i>',data-filled-star='<i class="glyphicon glyphicon-record"></i>',data-step="1",data-default-caption="{rating}", data-star-captions="",data-star-caption-classes="",data-size="sm",data-disabled="true")
+                    .yesno-group
+                        .form-group.yesno
+                            label Does the company have a disruptive product?
+                            .yes
+                                input#inputDifferentiationProductYes(type="radio", value="true", disabled="disabled", name="differentiationProduct", checked=('#{report.differentiationProduct}'==='true' ? "checked" : undefined))
+                                label(for="inputDifferentiationProductYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputDifferentiationProductNo(type="radio", value="false", disabled="disabled", name="differentiationProduct", checked=('#{report.differentiationProduct}'==='false' ? "checked" : undefined))
+                                label(for="inputDifferentiationProductNo")
+                                    span.sr-only No
+                        .form-group.yesno
+                            label Does the company have pending or current IP?
+                            .yes
+                                input#inputDifferentiationIPYes(type="radio", value="true", disabled="disabled", name="differentiationIP", checked=('#{report.differentiationIP}'==='true' ? "checked" : undefined))
+                                label(for="inputDifferentiationIPYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputDifferentiationIPNo(type="radio", value="false", disabled="disabled", name="differentiationIP", checked=('#{report.differentiationIP}'==='false' ? "checked" : undefined))
+                                label(for="inputDifferentiationIPNo")
+                                    span.sr-only No
+                        .form-group.yesno
+                            label Does the company have any key partnerships with supply chain stakeholders that give it a competitive advantage?
+                            .yes
+                                input#inputDifferentiationPartnershipsYes(type="radio", value="true", disabled="disabled", name="differentiationPartnerships", checked=('#{report.differentiationPartnerships}'==='true' ? "checked" : undefined))
+                                label(for="inputDifferentiationPartnershipsYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputDifferentiationPartnershipsNo(type="radio", value="false", disabled="disabled", name="differentiationPartnerships", checked=('#{report.differentiationPartnerships}'==='false' ? "checked" : undefined))
+                                label(for="inputDifferentiationPartnershipsNo")
+                                    span.sr-only No
+                    .differentiationNotes
+                        label Notes
+                        .text #{report.differentiationNotes}
+                section.financials.category#financials
+                    .header
+                        .left
+                            h2 Financials
+                            label Category Rating
+                        input.rating.form-control#financialsRating(type="text", name="financialsRating",placeholder="1-5",value="#{report.financialsRating}",data-show-caption="false",data-show-clear="false",data-hover-enabled="true",data-empty-star='<i class="glyphicon glyphicon-record"></i>',data-filled-star='<i class="glyphicon glyphicon-record"></i>',data-step="1",data-default-caption="{rating}", data-star-captions="",data-star-caption-classes="",data-size="sm",data-disabled="true")
+                    .yesno-group
+                        .form-group.yesno
+                            label Does the company have a recurring revenue stream or high repeat purchases from customers?
+                            .yes
+                                input#inputFinancialsStreamYes(type="radio", value="true", disabled="disabled", name="financialsStream", checked=('#{report.financialsStream}'==='true' ? "checked" : undefined))
+                                label(for="inputFinancialsStreamYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputFinancialsStreamNo(type="radio", value="false", disabled="disabled", name="financialsStream", checked=('#{report.financialsStream}'==='false' ? "checked" : undefined))
+                                label(for="inputFinancialsStreamNo")
+                                    span.sr-only No
+                        .form-group.yesno
+                            label Is valuation at market level versus other similar stage equity crowdfunded companies?
+                            .yes
+                                input#inputFinancialsValuationYes(type="radio", value="true", disabled="disabled", name="financialsValuation", checked=('#{report.financialsValuation}'==='true' ? "checked" : undefined))
+                                label(for="inputFinancialsValuationYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputFinancialsValuationNo(type="radio", value="false", disabled="disabled", name="financialsValuation", checked=('#{report.financialsValuation}'==='false' ? "checked" : undefined))
+                                label(for="inputFinancialsValuationNo")
+                                    span.sr-only No
+                        .form-group.yesno
+                            label Are the uses of funds going towards growth of the business?
+                            .yes
+                                input#inputFinancialsGrowthYes(type="radio", value="true", disabled="disabled", name="financialsGrowth", checked=('#{report.financialsGrowth}'==='true' ? "checked" : undefined))
+                                label(for="inputFinancialsGrowthYes")
+                                    span.sr-only Yes
+                            .no
+                                input#inputFinancialsGrowthNo(type="radio", value="false", disabled="disabled", name="financialsGrowth", checked=('#{report.financialsGrowth}'==='false' ? "checked" : undefined))
+                                label(for="inputFinancialsGrowthNo")
+                                    span.sr-only No
+                    .financialsNotes
+                        label Notes
+                        .text #{report.financialsNotes}
+                section.faq.category#faq
+                    label Commonly Asked:
+                    .text #{report.faq}
+                section.summary.category#summary
+                    .header
+                        h2 Stratifund's Summary
+                    .text #{report.summary}
+
+    

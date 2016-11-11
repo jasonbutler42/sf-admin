@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+.sf-dark-blue {
+  background: #0b193b;
+  width: 20%;
+  height: 2em; }
+
+.sf-dark-green {
+  background: #318c8a;
+  width: 20%;
+  height: 2em; }
+
+.sf-med-green {
+  background: #3a9c9b;
+  width: 20%;
+  height: 2em; }
+
+.sf-light-green {
+  background: #62c6c2;
+  width: 20%;
+  height: 2em; }
+
+.sf-darker-grey {
+  background: #8e9093;
+  width: 20%;
+  height: 2em; }
+
+.sf-dark-grey {
+  background: #c2bfbf;
+  width: 20%;
+  height: 2em; }
+
+.sf-light-grey {
+  background: #d1d2d4;
+  width: 20%;
+  height: 2em; }
+
+.sf-lighter-grey {
+  background: #eaebec;
+  width: 20%;
+  height: 2em; }

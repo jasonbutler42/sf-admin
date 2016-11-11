@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    p
+        a(href="/reports/new") Create New Report
+    table.table.table-striped.table-hover
+        th Company
+        th Rating
+        th Industry
+        td(colspan="3")
+        - each report, i in reports
+            tr
+                td
+                    = report.name 
+                td
+                    = report.overallRating
+                td
+                    = report.industry
+                td
+                    form(action='/reports/#{report._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                        input(type='hidden',value='DELETE',name='_method')
+                        button.btn.btn-danger(type='submit').
+                            Delete
+                td 
+                    a.btn.btn-info(href='/reports/#{report._id}/edit') Edit
+                td
+                    a.btn.btn-info(href='/reports/#{report._id}') View

@@ -1,0 +1,328 @@
+@import "sf-variables";
+.options {
+	position:fixed;
+	top: 1vh;
+	right: 1vh;
+	border: 1px solid $sf-border-color;
+	background:#fff;
+	border-radius: 20px;
+	padding: 1vh;
+}
+.report {
+	//background: yellow;
+	color: $sf-darker-grey;
+	display:flex;
+	height: 100vh;
+	flex-direction: column;
+	overflow: hidden;
+	position:relative;
+	label {
+		text-transform: uppercase;
+		margin: 0;
+		font-weight: normal;
+		font-size:75%;
+	}
+	h2,h3 {
+		color: $sf-med-green;
+		font-size: 150%;
+		padding: 0;
+		margin: 0;
+	}
+	.text {
+		white-space: pre-wrap;
+		margin-bottom: 2em;
+	}
+	.report-header {
+		.branding {
+			border-bottom: 1px solid $sf-border-color;
+			display:flex;
+			justify-content: space-between;
+			align-items: stretch;
+			color: $sf-dark-green;
+			flex: 0 0 auto;
+			margin-bottom: 1em;	
+		}
+		
+	}
+	.report-body-wrapper {
+		display: flex;
+		flex-direction: column;
+		overflow-y: scroll;
+		overflow-x:hidden;
+		position: relative;
+		flex: 1 1 auto;
+		height: 100%;
+		//border: 1px solid pink;
+		.report-body-content {
+			//border: 1px solid green;
+			flex: 1;
+		}
+	}
+	.overview {
+		display: flex;
+		flex-direction: column;
+		.top {
+			display:flex;
+			justify-content: space-between;
+			align-items: center;
+			label {
+				//font-size: 75%;
+				
+			}
+			.right-column {
+				display: flex;
+				flex-direction:column;
+				flex: 1 1 auto;
+				align-items: stretch;
+				> div {
+					display:flex;
+					//justify-content: center;
+					align-items: center;
+					//border: 1px solid blue;
+					margin-bottom: 1em;
+				}
+				label,
+				.value {
+					//border: 1px solid red;
+				}
+				label {
+					flex: 1 1 auto;
+					text-align:right;
+					//margin: 0;
+					padding-right: 1em;
+				}
+				.value {
+					width: 30%;
+					flex: 0 0 auto;
+					text-align: left;
+					font-weight: bold;
+					
+					color: $sf-med-green;
+				}
+			}
+		}
+		.bottom {
+			display: flex;
+			flex-flow: column wrap;
+			max-height: 6em;
+			li {
+				list-style: none;
+				width: 50%;
+				flex: 0 0 auto;
+				//border: 1px solid red;
+				display:flex;
+				justify-content: center;
+				align-items:center;
+				label {
+					//font-weight: normal;
+					//font-size: 75%;
+					color: $sf-med-green;
+					text-align: right;
+					padding-right: 1em;
+				}
+				.value {
+					text-align: left;	
+				}
+				label,
+				.value {
+					width: 50%;
+				}
+			}
+		}
+		.profile {
+
+		}
+	}
+	.category {
+		.header {
+			background: $sf-lighter-grey;
+			padding: .5em 1em;
+			border-radius: .5em;
+			display:flex;
+			justify-content: space-between;
+			align-items:center;
+			margin-bottom: 2em;
+		}
+		// yes/no overrides
+		.yesno label {
+			color: $sf-darker-grey;
+			font-size: 100%;
+			text-transform:none;
+		}
+		.yes,
+		.no {
+
+			label:before {
+				cursor: initial;
+			}
+			input {	
+				&[value="true"]:empty ~ label:before {					
+					color: #dff0d8;
+				}
+				&[value="true"]:checked ~ label:before {
+					color: #3c763d;
+				}
+				&[value="true"]:empty ~ label:hover:before {
+					background-image:none;
+				}
+				&[value="false"]:empty ~ label:before {
+					color: #f2dede;
+				}
+				&[value="false"]:checked ~ label:before {
+					color: #a94442;
+				}
+				&[value="false"]:empty ~ label:hover:before {
+					background-image:none;
+				}
+			}
+		}
+		// square grid overrides
+		.square {
+			input {
+				&:empty ~ label:before {
+					background: #fafbfb;
+				}
+				
+				&:empty ~ label:hover:before {
+					background: #fafbfb;
+				}
+				&:checked ~ label:hover:before,
+				&:checked ~ label:before {
+					background: #62c6c2;
+				}
+			}
+			label {
+				&:before {
+					cursor: initial;
+				}
+			}
+		}		
+	}
+
+
+
+	.name {
+		font-weight: bold;
+		font-size: 300%;
+	}
+	.website {
+		display:flex;
+		align-items: center;
+	}
+	
+	.overallRating {
+
+	}
+	.industry {
+
+	}
+	.minimumInvestment {
+
+	}
+	.offeringType {
+
+	}
+	.twelveMonthSales {
+
+	}
+	.valuation {
+
+	}
+	.seekingMin {
+
+	}
+	.seekingMax {
+
+	}
+	.stage {
+
+	}
+
+	.teamRating {
+
+	}
+	.teamCEO {
+
+	}
+	.teamExperience {
+
+	}
+	.teamWork {
+
+	}
+	.teamGrid {
+
+	}
+	.teamNotes {
+
+	}
+	.industryRating {
+
+	}
+	.industryBarriers {
+
+	}
+	.industryGrowth {
+
+	}
+	.industryReach {
+
+	}
+	.industryGrid {
+
+	}
+	.industryNotes {
+
+	}
+	.competitionRating {
+
+	}
+	.competitionLevel {
+
+	}
+	.competitionMarketshare {
+
+	}
+	.competitionFragmentation {
+
+	}
+	.competitionNotes {
+
+	}
+	.differentiationRating {
+
+	}
+	.differentiationProduct {
+
+	}
+	.differentiationIP {
+
+	}
+	.differentiationPartnerships {
+
+	}
+	.differentiationNotes {
+
+	}
+	.financialsRating {
+
+	}
+	.financialsStream {
+
+	}
+	.financialsValuation {
+
+	}
+	.financialsGrowth {
+
+	}
+	.financialsNotes {
+
+	}
+	.faq {
+
+	}
+	.summary {
+
+	}
+}
